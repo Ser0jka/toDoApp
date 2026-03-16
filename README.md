@@ -32,12 +32,12 @@ npm start
 ```json
 [
   {
-    "id": 1,
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "title": "Сделать ДЗ",
     "completed": false
   },
   {
-    "id": 2,
+    "id": "f4d8d97d-27b2-4f74-9c14-f1f8ee9b9d4f",
     "title": "Проверить PR",
     "completed": true
   }
@@ -66,13 +66,15 @@ npm start
 
 ```json
 {
-  "id": 3,
+  "id": "b1b3d9d7-7d47-4f30-a9f6-9dce7d8f43d2",
   "title": "Подготовить урок",
   "completed": false
 }
 ```
 
 ### 3) Обновить задачу (`PATCH /tasks/{id}`)
+
+`id` в path-параметре: строковый UUID.
 
 Тело запроса:
 
@@ -89,13 +91,15 @@ npm start
 
 ```json
 {
-  "id": 3,
+  "id": "b1b3d9d7-7d47-4f30-a9f6-9dce7d8f43d2",
   "title": "Подготовить урок по REST",
   "completed": true
 }
 ```
 
 ### 4) Удалить задачу (`DELETE /tasks/{id}`)
+
+`id` в path-параметре: строковый UUID.
 
 Тело запроса: **отсутствует**.
 
