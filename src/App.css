@@ -1,17 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --bg-main: #161310;
-  --panel: #211b15;
-  --panel-soft: #282118;
-  --line: #5c4b36;
-  --text-main: #ede0c7;
-  --text-muted: #b8a587;
-  --brand: #b98b43;
-  --brand-hover: #d6a45a;
-  --danger: #b85a4d;
-  --danger-hover: #cf6c5f;
-  --shadow: 0 20px 44px rgba(0, 0, 0, 0.42);
+  /* 🌊 Ocean Theme Palette */
+  --bg-main: #0a1628;           /* Глубокий океан */
+  --panel: #13294b;             /* Тёмно-синий */
+  --panel-soft: #1a3a5c;        /* Насыщенный синий */
+  --line: #3a6ea5;              /* Голубая граница */
+  --text-main: #e0f7fa;         /* Светлая пена моря */
+  --text-muted: #81c7d4;        /* Приглушённый циан */
+  --brand: #00bcd4;             /* Яркий циан/бирюза */
+  --brand-hover: #26c6da;       /* Светлый циан */
+  --danger: #ef5350;            /* Коралловый акцент */
+  --danger-hover: #e57373;      /* Светлый коралл */
+  --success: #4caf50;           /* Морская зелень */
+  --success-hover: #66bb6a;     /* Светлая зелень */
+  --shadow: 0 20px 44px rgba(0, 30, 60, 0.5); /* Глубокая тень */
 }
 
 * {
@@ -20,9 +23,12 @@
 
 body {
   margin: 0;
-  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: var(--text-main);
   background: var(--bg-main);
+  background-image: 
+    radial-gradient(ellipse at top, rgba(0, 188, 212, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(76, 175, 80, 0.06) 0%, transparent 60%);
 }
 
 .app-shell {
@@ -45,13 +51,15 @@ body {
 .panel {
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: linear-gradient(180deg, #251f18 0%, var(--panel) 100%);
+  background: linear-gradient(180deg, #1a3a5c 0%, var(--panel) 100%);
   box-shadow: var(--shadow);
   animation: rise-in 420ms ease both;
 }
 
 .hero {
   padding: 28px;
+  border-color: #4fc3f7;
+  box-shadow: 0 0 30px rgba(0, 188, 212, 0.15), var(--shadow);
 }
 
 .hero-head {
@@ -63,10 +71,11 @@ body {
 
 .hero h1 {
   margin: 0;
-  font-family: 'Cinzel', serif;
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(1.85rem, 2.8vw, 2.45rem);
   line-height: 1.08;
   letter-spacing: 0.03em;
+  text-shadow: 0 2px 10px rgba(0, 188, 212, 0.3);
 }
 
 .view-switcher {
@@ -74,7 +83,8 @@ body {
   padding: 4px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: #18130f;
+  background: #0d2138;
+  border-color: #4fc3f7;
 }
 
 .switch-btn {
@@ -85,20 +95,23 @@ body {
   padding: 9px 14px;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 120ms ease, color 120ms ease;
+  transition: background-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
 }
 
 .switch-btn:hover {
   color: var(--text-main);
+  box-shadow: inset 0 0 0 1px rgba(0, 188, 212, 0.4);
 }
 
 .switch-btn.active {
-  background: #2f261b;
-  color: var(--text-main);
+  background: linear-gradient(135deg, #00838f, #00acc1);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 188, 212, 0.4);
 }
 
 .panel {
   padding: 20px;
+  border-color: #4fc3f7;
 }
 
 .input-row {
@@ -112,7 +125,7 @@ body {
   min-width: 0;
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: #18130f;
+  background: #0d2138;
   font-size: 1rem;
   padding: 12px 14px;
   color: var(--text-main);
@@ -120,13 +133,13 @@ body {
 }
 
 .input-row input[type='text']::placeholder {
-  color: #8f7e65;
+  color: #5d9dbf;
 }
 
 .input-row input[type='text']:focus {
   outline: none;
   border-color: var(--brand);
-  box-shadow: 0 0 0 3px rgba(185, 139, 67, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.35), 0 0 20px rgba(0, 188, 212, 0.15);
 }
 
 .checkbox-row {
@@ -146,20 +159,22 @@ body {
 }
 
 .btn {
+  font-family: "Montserrat", sans-serif;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #2a2219;
+  background: #1a3555;
   color: var(--text-main);
   padding: 10px 14px;
   font-weight: 600;
   cursor: pointer;
   transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease,
-    color 120ms ease;
+    color 120ms ease, box-shadow 120ms ease;
 }
 
 .btn:hover {
-  background: #352a1d;
-  border-color: #806649;
+  background: #24466f;
+  border-color: #64b5f6;
+  box-shadow: 0 4px 16px rgba(0, 188, 212, 0.2);
 }
 
 .btn:active {
@@ -167,29 +182,46 @@ body {
 }
 
 .btn-primary {
-  background: var(--brand);
+  background: linear-gradient(135deg, var(--brand), #00acc1);
   border-color: var(--brand);
-  color: #1c150d;
+  color: #001c21;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 188, 212, 0.35);
 }
 
 .btn-primary:hover {
-  background: var(--brand-hover);
+  background: linear-gradient(135deg, var(--brand-hover), #26c6da);
   border-color: var(--brand-hover);
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.5);
 }
 
 .btn-danger {
   color: var(--danger);
+  border-color: #c62828;
 }
 
 .btn-danger:hover {
   color: #fff1ee;
-  background: var(--danger-hover);
+  background: linear-gradient(135deg, var(--danger), var(--danger-hover));
   border-color: var(--danger-hover);
+  box-shadow: 0 4px 14px rgba(239, 83, 80, 0.35);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success), var(--success-hover));
+  border-color: var(--success);
+  color: #0a1f0b;
+  font-weight: 700;
+}
+
+.btn-success:hover {
+  box-shadow: 0 4px 14px rgba(76, 175, 80, 0.4);
 }
 
 .status-message {
   margin-top: 12px;
   color: var(--text-muted);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .tasks-header {
@@ -202,6 +234,7 @@ body {
 .tasks-header h2 {
   margin: 0;
   font-size: 1.18rem;
+  color: #81d4fa;
 }
 
 .stats {
@@ -217,8 +250,9 @@ body {
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--text-muted);
-  background: #2e241a;
+  background: #1a3a5c;
   font-size: 0.9rem;
+  border-color: #4fc3f7;
 }
 
 .empty-state {
@@ -227,7 +261,8 @@ body {
   border: 1px dashed var(--line);
   border-radius: 14px;
   color: var(--text-muted);
-  background: #2a2118;
+  background: #0f2a47;
+  border-color: #4fc3f7;
 }
 
 .tasks-panel ul {
@@ -249,6 +284,13 @@ body {
   background: var(--panel-soft);
   animation: rise-in 360ms ease both;
   animation-delay: calc(var(--item-index, 0) * 35ms);
+  border-color: #4fc3f7;
+  transition: box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.tasks-panel li:hover {
+  border-color: #81d4fa;
+  box-shadow: 0 4px 18px rgba(0, 188, 212, 0.18);
 }
 
 .category-list li {
@@ -260,7 +302,7 @@ body {
   height: 28px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #19140f;
+  background: #0d2138;
   color: transparent;
   font-weight: 800;
   cursor: pointer;
@@ -268,12 +310,14 @@ body {
   align-items: center;
   justify-content: center;
   transition: all 140ms ease;
+  border-color: #4fc3f7;
 }
 
 .toggle.done {
   border-color: var(--brand);
-  color: #1a130a;
-  background: var(--brand);
+  color: #001c21;
+  background: linear-gradient(135deg, var(--brand), var(--brand-hover));
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
 }
 
 .task-content {
@@ -290,7 +334,7 @@ body {
 
 .task-title.done {
   text-decoration: line-through;
-  color: #8f7f66;
+  color: #5d9dbf;
 }
 
 .task-state {
@@ -310,8 +354,9 @@ body {
   height: 28px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: linear-gradient(180deg, #6c5430 0%, #44331d 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 223, 172, 0.14);
+  background: linear-gradient(180deg, #00838f 0%, #004d40 100%);
+  box-shadow: inset 0 1px 0 rgba(129, 212, 250, 0.2);
+  border-color: #4fc3f7;
 }
 
 @keyframes rise-in {
@@ -323,6 +368,23 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* 🌊 Морские блики и свечение */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  padding: 1px;
+  background: linear-gradient(135deg, 
+    rgba(0, 188, 212, 0.4), 
+    rgba(76, 175, 80, 0.2), 
+    transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 @media (max-width: 720px) {

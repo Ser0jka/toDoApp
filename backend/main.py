@@ -28,6 +28,7 @@ class TaskCreate(BaseModel):
 
 
 tasks: list[Task] = []
+book = "Самый богатый человек в Вавилоне"
 
 
 @app.get("/tasks", response_model=list[Task])
@@ -42,3 +43,8 @@ def create_task(payload: TaskCreate):
     task = Task(id=str(uuid4()), title=payload.title, completed=False)
     tasks.append(task)
     return task
+
+
+@app.post('/book', response_model=str, status_code=status.HTTP_201_CREATED)
+def print_book():
+    return f'Любимая книга: {book}'
