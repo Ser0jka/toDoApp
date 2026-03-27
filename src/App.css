@@ -1,20 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  /* 🌊 Ocean Theme Palette */
-  --bg-main: #0a1628;           /* Глубокий океан */
-  --panel: #13294b;             /* Тёмно-синий */
-  --panel-soft: #1a3a5c;        /* Насыщенный синий */
-  --line: #3a6ea5;              /* Голубая граница */
-  --text-main: #e0f7fa;         /* Светлая пена моря */
-  --text-muted: #81c7d4;        /* Приглушённый циан */
-  --brand: #00bcd4;             /* Яркий циан/бирюза */
-  --brand-hover: #26c6da;       /* Светлый циан */
-  --danger: #ef5350;            /* Коралловый акцент */
-  --danger-hover: #e57373;      /* Светлый коралл */
-  --success: #4caf50;           /* Морская зелень */
-  --success-hover: #66bb6a;     /* Светлая зелень */
-  --shadow: 0 20px 44px rgba(0, 30, 60, 0.5); /* Глубокая тень */
+  --bg-main: #0a1628;
+  --panel: #13294b;
+  --panel-soft: #1a3a5c;
+  --line: #3a6ea5;
+    --text-main: #e0f7fa;
+  --text-muted: #81c7d4;
+  --brand: #00bcd4;
+  --brand-hover: #26c6da;
+  --danger: #ef5350;
+  --danger-hover: #e57373;
+  --success: #4caf50;
+  --success-hover: #66bb6a;
+  --shadow: 0 20px 44px rgba(0, 30, 60, 0.5); 
 }
 
 * {
@@ -370,7 +369,6 @@ body {
   }
 }
 
-/* 🌊 Морские блики и свечение */
 .hero::before {
   content: '';
   position: absolute;
