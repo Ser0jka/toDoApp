@@ -42,6 +42,10 @@ class CategoryUpdate(BaseModel):
     name: str | None = None
     completed: bool | None = None
 
+class CategoryDelete(BaseModel):
+    id: str
+
+
 
 
 tasks: list[Task] = []
@@ -108,6 +112,15 @@ def update_category(cat_id: str, payload: CategoryUpdate) -> Task:
         if category.id == cat_id:
             category.name = payload.name if payload.name is not None else payload.name
             return category
+        
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Категория не найдена")
+
+@app.delete("/categories/{cat_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_category(cat_id: str) -> None:
+    for category in categories:
+        if category.id == cat_id:
+            categories.remove(category)
+            return
         
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Категория не найдена")
 
