@@ -1,0 +1,10 @@
+import uuid
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+
+from app.models.base import Base
+
+class CategoryORM(Base):
+    """Модель для таблицы категорий в Базе Данных"""
+    __tablename__ = "categories"
+
+    title: Mapped[str]
