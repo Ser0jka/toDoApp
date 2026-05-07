@@ -14,7 +14,7 @@ class CategoryRepository:
         return self.db.get(CategoryORM, cat_id)
     
     def create(self, title: str) -> CategoryORM:
-        category = CategoryORM(title=title)
+        category = CategoryORM(name=title)
         self.db.add(category)
         return category
 

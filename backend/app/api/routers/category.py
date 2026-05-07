@@ -19,7 +19,7 @@ def create_category(payload: CategoryCreateShema, category_service: CategoryServ
 @router.patch("/{category_id}")
 def update_category(category_id: str, payload: CategoryCreateShema, category_service: CategoryService = Depends(get_category_service)) -> CategoryShema:
     try:
-        return category_service.update_category(cat_id=category_id, category_update=payload)
+        return category_service.update_category(category_id=category_id, category_update=payload)
     except CategoryNotFound:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Категория не найдена")
 
@@ -28,6 +28,6 @@ def update_category(category_id: str, payload: CategoryCreateShema, category_ser
 @router.delete("/{category_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_category(category_id: str, category_service: CategoryService = Depends(get_category_service)) -> None:
     try:
-        return category_service.delete_category(task_id=category_id)
+        return category_service.delete_category(category_id=category_id)
     except CategoryNotFound:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Категория не найдена")

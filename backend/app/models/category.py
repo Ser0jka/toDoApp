@@ -7,4 +7,4 @@ class CategoryORM(Base):
     """Модель для таблицы категорий в Базе Данных"""
     __tablename__ = "categories"
 
-    title: Mapped[str]
+    name: Mapped[str]

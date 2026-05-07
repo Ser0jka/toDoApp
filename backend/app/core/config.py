@@ -7,6 +7,6 @@ class Settings:
 
 def get_settings() -> Settings:
     return Settings(
-        DATABASE_URL = "postgresql+psycopg://postgres:admin@127.0.0.1:5432/postgres",
+        DATABASE_URL = "postgresql+psycopg://postgres:admin@127.0.0.1:5433/postgres",
         cors_allowed_origin = ["http://localhost:3000"]
     )
