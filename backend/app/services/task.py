@@ -1,10 +1,10 @@
+from repositories.task import TaskRepository
+from shemas.task import TaskCreateShema, TaskShema, TaskUpdateShema
 from sqlalchemy.orm import Session
-from app.repositories.task import TaskRepository
-from app.shemas.task import TaskShema, TaskCreateShema, TaskUpdateShema
+
 
 class TaskNotFound(Exception):
     """Задача не найдена"""
-
 
 
 class TaskService:
@@ -13,15 +13,14 @@ class TaskService:
         self.task_repository = TaskRepository(db)
 
     def list_tasks(self) -> list[TaskShema]:
-       tasks = self.task_repository.get_all()
+        tasks = self.task_repository.get_all()
 
-       return [TaskShema.model_validate(task) for task in tasks]
-    
+        return [TaskShema.model_validate(task) for task in tasks]
+
     def create_task(self, task_create: TaskCreateShema) -> TaskShema:
-        task =self.task_repository.create(title=task_create.title)
+        task = self.task_repository.create(title=task_create.title)
         self.db.commit()
         return TaskShema.model_validate(task)
- 
 
     def update_task(self, task_id: str, task_update: TaskUpdateShema) -> TaskShema:
         task = self.task_repository.get_by_id(task_id=task_id)
@@ -33,7 +32,6 @@ class TaskService:
             task.completed = task_update.completed
         self.db.commit()
         return TaskShema.model_validate(task)
-
 
     def delete_task(self, task_id: str) -> None:
         task = self.task_repository.get_by_id(task_id=task_id)
