@@ -1,8 +1,9 @@
 from typing import Sequence
 
-from models.category import CategoryORM
 from sqlalchemy import select
 from sqlalchemy.orm import Session
+
+from app.models.category import CategoryORM
 
 
 class CategoryRepository:

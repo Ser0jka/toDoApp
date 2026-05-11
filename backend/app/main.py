@@ -1,12 +1,13 @@
 import logging
 from time import perf_counter
 
-from api.routers.category import router as category_router
-from api.routers.task import router as task_router
-from core.config import get_settings
-from core.logging import configure_logging
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
+
+from app.api.routers.category import router as category_router
+from app.api.routers.task import router as task_router
+from app.core.config import get_settings
+from app.core.logging import configure_logging
 
 configure_logging()
 

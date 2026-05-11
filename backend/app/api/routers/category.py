@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from services.category import CategoryNotFound, CategoryService
-from shemas.category import CategoryCreateShema, CategoryShema, CategoryUpdateShema
 
-from api.dependencies import get_category_service
+from app.api.dependencies import get_category_service
+from app.services.category import CategoryNotFound, CategoryService
+from app.shemas.category import CategoryCreateShema, CategoryShema, CategoryUpdateShema
 
 router = APIRouter(prefix="/categories")
 

@@ -1,6 +1,7 @@
-from repositories.task import TaskRepository
-from shemas.task import TaskCreateShema, TaskShema, TaskUpdateShema
 from sqlalchemy.orm import Session
+
+from app.repositories.task import TaskRepository
+from app.shemas.task import TaskCreateShema, TaskShema, TaskUpdateShema
 
 
 class TaskNotFound(Exception):

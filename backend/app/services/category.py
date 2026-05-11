@@ -1,6 +1,7 @@
-from repositories.category import CategoryRepository
-from shemas.category import CategoryCreateShema, CategoryShema, CategoryUpdateShema
 from sqlalchemy.orm import Session
+
+from app.repositories.category import CategoryRepository
+from app.shemas.category import CategoryCreateShema, CategoryShema, CategoryUpdateShema
 
 
 class CategoryNotFound(Exception):
